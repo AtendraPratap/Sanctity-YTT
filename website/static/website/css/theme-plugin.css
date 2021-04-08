@@ -1,0 +1,28 @@
+/* ------------------------------------------------
+  Project:   Moneyply - Creative Bootstrap 4 Landing Page
+  Author:    ThemeHt
+------------------------------------------------ */
+
+/* ------------------------
+    Table of Css
+
+  1. Bootstrap
+  2. Animate
+  3. Line Awesome
+  4. Themify Icons
+  5. magnific-popup
+  6. Owl Carousel
+  7. Lightslider  
+  8. Jquery Ui
+  9. Spacing
+ ------------------------ */
+
+@import 'bootstrap.min.css';
+@import 'animate.min.css';
+@import 'line-awesome.min.css';
+@import 'themify-icons.css';
+@import 'magnific-popup.css';
+@import 'owl.carousel.min.css';
+@import 'lightslider.min.css';
+@import 'jquery-ui.css';
+@import 'spacing.min.css';

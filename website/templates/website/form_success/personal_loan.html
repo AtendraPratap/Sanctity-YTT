@@ -1,0 +1,53 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block my_css %}
+<style>
+  label {
+    font-size: 0.8em;
+  }
+</style>
+
+{% endblock my_css %}
+
+{% block content %}
+
+{% include 'website/includes/_navbar2.html' %}
+
+<section class="position-relative">
+  <div id="particles-js"></div>
+  <div class="container">
+    <div class="row  text-center">
+      <div class="col">
+        <h1>Personal Loan</h1>
+      </div>
+    </div>
+    <!-- / .row -->
+  </div>
+  <!-- / .container -->
+</section>
+
+<!--hero section end--> 
+
+
+<!--body content start-->
+
+<div class="page-content">
+
+<section class="text-center pb-11">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="mb-4">Thank you for your loan application. Our loan team will contact you within 24 hours.</h3>
+        <a class="btn btn-primary" href="/">Home</a>
+        <a class="btn btn-primary" href="/">Continue Browsing</a>      
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+{% endblock content %}
+

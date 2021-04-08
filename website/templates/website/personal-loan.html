@@ -1,0 +1,542 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block my_css %}
+
+<style>
+
+</style>
+{% endblock my_css %}
+
+{% block content %}
+
+{% include 'website/includes/_navbar2.html' %}
+
+
+<section class="register">
+  <div class="container">
+     <div class="row justify-content-center text-center">
+      <div class="col-lg-8 col-md-12">
+        <div class="mb-6"> <span>
+        <picture>
+            <source srcset="{% static "website/images/logo/icon-dark.webp"%}" type="image/webp">
+            <source srcset="{% static "website/images/logo/icon-dark.png"%}" type="image/png">
+            <img src="{% static "website/images/logo/icon-dark.png"%}" style="width: 65px; height: auto;" alt="">
+          </picture>
+
+              </span>
+          <h2 class="mt-3">Apply for your personal loan now!</h2>
+              
+        </div>
+        </div>
+        </div>
+    <div class="row" id='form-success'>
+      <div class="col-lg-10 col-md-12 ml-auto mr-auto">
+        <div class="register-form text-left">
+          <form id="pl-form" method="post" enctype="multipart/form-data" novalidate="true">
+            {% csrf_token %}
+             <div class="messages"></div>
+             <div class="form-row">
+              <div class="col-md-6">
+                <div class="form-group">
+                {% comment %} <label for="id_first_name">First Name</label> {% endcomment %}
+                  {% render_field form.first_name class+="form-control" placeholder="First name" required="required" data-error="Firstname is required."  %}
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                {% comment %} <label for="id_last_name">Last Name</label> {% endcomment %}
+                  {% render_field form.last_name class+="form-control" placeholder="Last name" required="required" data-error="Lastname is required."  %}
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6">
+                <div class="form-group">
+                {% comment %} <label for="id_email">Email</label> {% endcomment %}
+                  {% render_field form.email_id type="email" class+="form-control" placeholder="Email" required="required" data-error="Please enter a valid email address."  %}
+                  <div class="help-block with-errors"></div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                {% comment %} <label for="id_mobile_number_1">Mobile Number</label> {% endcomment %}
+                  <div class="input-group mb-3">
+                    {% render_field form.mobile_number_1 class+="form-control" placeholder="Your 10 Digit Mobile Number" required="required" data-error="Mobile Number is required."  %}
+                    <div class="help-block with-errors"></div>
+                  </div>
+                 <!--  <div class="success-text text-success">
+                    &#10003; OTP VERIFIED
+                  </div> -->
+                </div>
+              </div>
+
+              
+              
+            </div>
+            <div class="row mt-1">
+              <div class="col-md-12">
+                <div class="remember-checkbox clearfix mb-2">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" required="required" id="tnc-check">
+                    <label class="custom-control-label" for="tnc-check">I agree to the  <a href="/terms-conditions"> terms and conditions </a> and  <a href="/privacy-policy"> privacy policy </a> </label>
+                  </div>
+                </div> 
+              </div>
+            </div>
+            <div class="row mt-1">
+              <div class="col-md-12">
+                <div class="remember-checkbox clearfix mb-5">
+                  <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" checked="checked" name="newsletter" id="id_newsletter">
+                    <label class="custom-control-label" for="id_newsletter">Moneyply can send me promotional offers and newsletters</label>
+                  </div>
+                </div> 
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <button type="button" class="btn btn-primary" id="get-otp-btn">Submit Application</button>
+              </div>
+            </div>
+  <div class="modal fade" id="otp-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Verify your phone number</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Enter OTP
+        <input type="text" placeholder="OTP" id="votp" class="form-control mt-4">
+        <div class="error-text text-danger">
+          &#10005; Incorrect OTP, try again.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="otp-ver">Verify</button>
+        <button type="submit" class="btn btn-primary" id="deposit" style="display: none;"></button>
+      </div>
+    
+    </div>
+  </div>
+        </form>
+          <div class="powered text-right">
+            <p style="font-size:14px; margin-top: -30px;">Powered By <span> <img src="{% static 'website/images/logo/cashe.png' %}" style="margin-left: 7px; width: auto; height: 18px;" alt=""> </span> </p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="position-relative">
+  <div id="particles-js"></div>
+  <div class="container">
+    <div class="row  text-center justify-content-center align-items-center">
+      <div class="col-7">
+        <h1>Get Loan Ready <br>  <span class="font-weight-bold"> in Seconds </span> </h1>
+      
+      </div>
+      <div class="col-5">
+        <img src="{% static 'website/images/bg/loan.svg' %}" class="img-fluid" alt="">
+      </div>
+    </div>
+    <!-- / .row -->
+  </div>
+  <!-- / .container -->
+</section>
+
+
+<section id="services" class="pt-5 custom-pb-3 bg-dark position-relative" >
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-12 col-md-12 col-lg-8 mb-8">
+        <div> <span>
+
+        <picture>
+            <source srcset="{% static "website/images/logo/icon-light.webp"%}" type="image/webp">
+            <source srcset="{% static "website/images/logo/icon-light.png"%}" type="image/png">
+            <img src="{% static "website/images/logo/icon-light.png"%}" style="width: 65px; height: auto;" alt="">
+        </picture>
+        </span>
+          <h2 class="mt-2 text-white">How to Apply?</h2>
+          <p class="lead text-light mb-0"> <span class=""> You are just 5 steps away from applying for the loan.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-12 text-white">
+        <span class="badge badge-primary-soft p-2">
+              <i class="la la-tachometer-alt ic-3x"></i>
+        </span>
+          <h2 class="mt-3 mb-0">Get Loan Ready in No Time</h2>
+          <img src=" {% static 'website/images/illustrations/speed.svg' %} " style="height: 300px;" class="img-fluid" alt="" srcset="">
+      </div>
+      <div class="col-lg-8 col-md-12">
+        <div class="bg-primary-soft rounded px-5 py-2 mb-4">
+          <div class="row">
+          <div class="col-3 my-auto">
+            <div class="text-center">
+              <img class="img-fluid" src="{% static "website/images/icon/01.svg"%}" alt="">
+            </div>
+          </div>
+          <div class="col-9 my-auto">
+            <h5 class="m-0 text-light"> <span class="mr-2"> 1. </span> Enter your Personal Details</h5>
+          </div>
+          </div>
+          {% comment %} <p class="mb-0">Serspiciatis unde omnis iste natus laudantium, totam rem aperiam.</p> {% endcomment %}
+        </div>
+        <div class="bg-primary-soft rounded px-5 py-2 mb-4">
+          <div class="row">
+          <div class="col-3 my-auto">
+            <div class="text-center">
+              <img class="img-fluid" src="{% static "website/images/icon/02.svg"%}" alt="">
+            </div>
+          </div>
+          <div class="col-9 my-auto">
+            <h5 class="m-0 text-light"> <span class="mr-2"> 2. </span> Download the CASHe Loan App</h5>
+          </div>
+          </div>
+          {% comment %} <p class="mb-0">Serspiciatis unde omnis iste natus laudantium, totam rem aperiam.</p> {% endcomment %}
+        </div>
+        <div class="bg-primary-soft rounded px-5 py-2 mb-4">
+          <div class="row">
+          <div class="col-3 my-auto">
+            <div class="text-center">
+              <img class="img-fluid" src="{% static "website/images/icon/01.svg"%}" alt="">
+            </div>
+          </div>
+          <div class="col-9 my-auto">
+            <h5 class="m-0 text-light"> <span class="mr-2"> 3. </span> Fill up the application</h5>
+          </div>
+          </div>
+          {% comment %} <p class="mb-0">Serspiciatis unde omnis iste natus laudantium, totam rem aperiam.</p> {% endcomment %}
+        </div>
+        <div class="bg-primary-soft rounded px-5 py-2 mb-4">
+          <div class="row">
+          <div class="col-3 my-auto">
+            <div class="text-center">
+              <img class="img-fluid" src="{% static "website/images/icon/04.svg"%}" alt="">
+            </div>
+          </div>
+          <div class="col-9 my-auto">
+            <h5 class="m-0 text-light"> <span class="mr-2"> 4. </span> Submit your KYC (Self-Attested)</h5>
+          </div>
+          </div>
+          {% comment %} <p class="mb-0">Serspiciatis unde omnis iste natus laudantium, totam rem aperiam.</p> {% endcomment %}
+        </div>
+        <div class="bg-primary-soft rounded px-5 py-2 mb-4">
+          <div class="row">
+          <div class="col-3 my-auto">
+            <div class="text-center">
+              <img class="img-fluid" src="{% static "website/images/icon/rupee.png"%}" alt="">
+            </div>
+          </div>
+          <div class="col-9 my-auto">
+            <h5 class="m-0 text-light"> <span class="mr-2"> 5. </span> Select your approved loan</h5>
+          </div>
+          </div>
+          {% comment %} <p class="mb-0">Serspiciatis unde omnis iste natus laudantium, totam rem aperiam.</p> {% endcomment %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="new-data" class="pl">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-12 col-md-12 col-lg-8 mb-8 mb-lg-0">
+        <div class="mb-8"> 
+          <h2 class="mt-3 font-w-5">We know you have a genuine reason to borrow</h2>
+          <p class="lead mb-0">Life is full of surprises. Expenses pop up when you least expect them. What do you do then? Taking a personal loan might solve your problem.</p>
+        </div>
+      </div>
+    </div>
+     <!-- / .row -->
+    <div class="row align-items-center">
+      <div class="col-xl-3 col-lg-3 mb-8 mb-lg-0">
+        <div class="px-4 py-7 rounded hover-translate text-center">
+          <div>
+            <img class="img-fluid" src="{% static "website/images/illustrations/hospital.svg"%}" alt="">
+          </div>
+          <h5 class="mt-5 mb-3">For medical Emergency</h5>
+          {% comment %} <p>Serspiciatis unde omnis iste natus error sit doloremque laudantium, totam rem aperiam.</p> {% endcomment %}
+          {% comment %} <a class="btn-link">Read Details</a> {% endcomment %}
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-sm-6">
+        <div class="px-4 py-7 rounded hover-translate text-center bg-white">
+          <div>
+            <img class="img-fluid" src="{% static "website/images/illustrations/travellers.svg"%}" alt="">
+          </div>
+          <h5 class="mt-5 mb-3">Your dream vacation</h5>
+          {% comment %} <p>Serspiciatis unde omnis iste natus error sit doloremque laudantium, totam rem aperiam.</p> {% endcomment %}
+          {% comment %} <a class="btn-link">Read Details</a> {% endcomment %}
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-sm-6 mt-6 mt-sm-0">
+        <div class="px-4 py-7 rounded hover-translate text-center">
+          <div>
+            <img class="img-fluid" src="{% static "website/images/illustrations/expen.svg"%}" alt="">
+          </div>
+          <h5 class="mt-5 mb-3">Home Repairs</h5>
+          {% comment %} <p>Serspiciatis unde omnis iste natus error sit doloremque laudantium, totam rem aperiam.</p> {% endcomment %}
+          {% comment %} <a class="btn-link">Read Details</a> {% endcomment %}
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-sm-6 mt-6 mt-sm-0">
+        <div class="px-4 py-7 rounded hover-translate text-center">
+          <div>
+            <img class="img-fluid" src="{% static "website/images/illustrations/bills.svg"%}" alt="">
+          </div>
+          <h5 class="mt-5 mb-3">Pay Bills</h5>
+          {% comment %} <p>Serspiciatis unde omnis iste natus error sit doloremque laudantium, totam rem aperiam.</p> {% endcomment %}
+          {% comment %} <a class="btn-link">Read Details</a> {% endcomment %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="docs bg-dark">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-12 col-md-12 col-lg-8 mb-8 mb-lg-0">
+        <div class="mb-8"> 
+          <h2 class="mt-3 font-w-5 text-white">You need to submit the following <br> "Self-attested" documents</h2>
+          {% comment %} <p class="lead mb-0">All types of businesses need access to development resources, so we give you the option to decide how much you need to use.</p> {% endcomment %}
+        </div>
+      </div>
+    </div>
+
+    <div class="row align-items-center">
+      <div class="col-xl-4 col-lg-4 mb-8 mb-lg-0">
+        <div class="px-4 py-7 rounded  text-center">
+          <div>
+            <span class="badge badge-light-soft p-2">
+                  <i class="la la-home ic-3x"></i>
+              </span>
+          </div>
+          <h5 class="mt-3 mb-3 text-white">Aadhar Card</h5>
+          {% comment %} <p>Serspiciatis unde omnis iste natus error sit doloremque laudantium, totam rem aperiam.</p> {% endcomment %}
+          {% comment %} <a class="btn-link">Read Details</a> {% endcomment %}
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-sm-6">
+        <div class="px-4 py-7 rounded text-center">
+          <div>
+          <span class="badge badge-light-soft p-2">
+                  <i class="la la-id-card ic-3x"></i>
+              </span>
+            {% comment %} <img class="img-fluid" src="{% static "website/images/illustrations/age.svg"%}" alt=""> {% endcomment %}
+          </div>
+          <h5 class="mt-3 mb-3 text-white">PAN Card</h5>
+          {% comment %} <p>Serspiciatis unde omnis iste natus error sit doloremque laudantium, totam rem aperiam.</p> {% endcomment %}
+          {% comment %} <a class="btn-link">Read Details</a> {% endcomment %}
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-sm-6 mt-6 mt-sm-0">
+        <div class="px-4 py-7 rounded text-center">
+          <div>
+            <span class="badge badge-light-soft p-2">
+                  <i class="la la-university ic-3x"></i>
+              </span>
+          </div>
+          <h5 class="mt-3 mb-3 text-white">6 Months Bank Statement</h5>
+          {% comment %} <p>Serspiciatis unde omnis iste natus error sit doloremque laudantium, totam rem aperiam.</p> {% endcomment %}
+          {% comment %} <a class="btn-link">Read Details</a> {% endcomment %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="elig">
+  <div class="container-fluid">
+  <div class="row justify-content-center">
+  
+  <div class="col-10 justify-content-center align-items-center">
+  
+    <div class="row justify-content-center text-center">
+      <div class="col-12 col-md-12 col-lg-8 mb-8 mb-lg-0">
+        <div class="mb-8"> 
+          <h2 class="mt-3 font-w-5">Check your Eligibility Criteria</h2>
+          {% comment %} <p class="lead mb-0">All types of businesses need access to development resources, so we give you the option to decide how much you need to use.</p> {% endcomment %}
+        </div>
+      </div>
+    </div>
+    <!-- / .row -->
+    <div class="row align-items-center">
+      <div class="col-xl-4 col-lg-4 mb-8 mb-lg-0">
+        <div class="px-4 py-7 rounded hover-translate text-center">
+          <div class="elig-img">
+            <img class="img-fluid" src="{% static "website/images/illustrations/salaried.svg"%}" alt="">
+          </div>
+          <h5 class="mt-5 mb-3">Salaried Professional <br> (Minimum Salary - Rs. 15000/month)</h5>
+          {% comment %} <p>Serspiciatis unde omnis iste natus error sit doloremque laudantium, totam rem aperiam.</p> {% endcomment %}
+          {% comment %} <a class="btn-link">Read Details</a> {% endcomment %}
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-sm-6">
+        <div class="px-4 py-7 rounded hover-translate text-center bg-white">
+          <div class="elig-img">
+            <img class="img-fluid" src="{% static "website/images/illustrations/age.svg"%}" alt="">
+          </div>
+          <h5 class="mt-5 mb-3">Minimum 21 years of age</h5>
+          {% comment %} <p>Serspiciatis unde omnis iste natus error sit doloremque laudantium, totam rem aperiam.</p> {% endcomment %}
+          {% comment %} <a class="btn-link">Read Details</a> {% endcomment %}
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-sm-6 mt-6 mt-sm-0">
+        <div class="px-4 py-7 rounded hover-translate text-center">
+          <div class="elig-img">
+            <img class="img-fluid" src="{% static "website/images/illustrations/loan.svg"%}" alt="">
+          </div>
+          <h5 class="mt-5 mb-3">No Past Loan Defaults</h5>
+          {% comment %} <p>Serspiciatis unde omnis iste natus error sit doloremque laudantium, totam rem aperiam.</p> {% endcomment %}
+          {% comment %} <a class="btn-link">Read Details</a> {% endcomment %}
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="custom-py-2 position-relative bg-dark parallaxie">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-12 col-md-12 col-lg-8 mb-8">
+        <div> <span>
+                  <picture>
+            <source srcset="{% static "website/images/logo/icon-light.webp"%}" type="image/webp">
+            <source srcset="{% static "website/images/logo/icon-light.png"%}" type="image/png">
+            <img src="{% static "website/images/logo/icon-light.png"%}" style="width: 65px; height: auto;" alt="">
+          </picture>
+              </span>
+          <h2 class="mt-4 text-white">Listen to what our Borrowers have to say</h2>
+          {% comment %} <p class="lead mb-0">All types of businesses need access to development resources, so we give you the option to decide how much you need to use.</p> {% endcomment %}
+        </div>
+      </div>
+    </div>
+    <!-- / .row -->
+  </div>
+  <div class="container-fluid text-center tests">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="owl-carousel owl-center" data-center="true" data-items="3" data-md-items="3" data-sm-items="1">
+          <div class="item">
+            <div class="card p-5 p-lg-8 bg-primary-soft border-0">
+              <div>
+                <img alt="Image" src="{% static "website/images/testimonial/vikas.png"%}" class="shadow-primary img-fluid rounded-circle d-inline">
+              </div>
+              <div class="card-body p-0 mt-5">
+                <p class="text-light">A simple website and app to navigate, I was able to get my loan in 30 mins.</p>
+                <div>
+                  <h5 class="text-primary d-inline mb-0">Vikas Kumar, 24</h5>
+                  <small class="text-muted font-italic">Graphic Designer, Patna</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="card p-5 p-lg-8 bg-primary-soft border-0">
+              <div>
+                <img alt="Image" src="{% static "website/images/testimonial/sanjay.png"%}" class="shadow-primary img-fluid rounded-circle d-inline">
+              </div>
+              <div class="card-body p-0 mt-5">
+                <p class="text-light">I got my loan approved and disbursed quickly to meet my emergency needs. Simple and fast to use.</p>
+                <div>
+                  <h5 class="text-primary d-inline mb-0">Sanjay Singh, 45</h5>
+                  <small class="text-muted font-italic">Teacher, Gurgaon</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="card p-5 p-lg-8 bg-primary-soft border-0">
+              <div>
+                <img alt="Image" src="{% static "website/images/testimonial/gaurav.png"%}" class="shadow-primary img-fluid rounded-circle d-inline">
+              </div>
+              <div class="card-body p-0 mt-5">
+                <p class="text-light">Simple, easy and user centric app, will use them again for my future loan requirements.</p>
+                <div>
+                  <h5 class="text-primary d-inline mb-0">Gaurav Pandey, 29</h5>
+                  <small class="text-muted font-italic">Medical Representative, Delhi</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="card p-5 p-lg-8 bg-primary-soft border-0">
+              <div>
+                <img alt="Image" src="{% static "website/images/testimonial/mohit.png"%}" class="shadow-primary img-fluid rounded-circle d-inline">
+              </div>
+              <div class="card-body p-0 mt-5">
+                <p class="text-light">Very user friendly and simple, have already recommended to my friends.</p>
+                <div>
+                  <h5 class="text-primary d-inline mb-0">Mohit Kataria, 27</h5>
+                  <small class="text-muted font-italic">Gym Trainer, Delhi</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="shape-1" style="height: 200px; overflow: hidden;">
+    <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+      <path d="M0.00,49.98 C150.00,150.00 271.49,-50.00 500.00,49.98 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill: #fff;"></path>
+    </svg>
+  </div>
+  <div class="shape-1 bottom" style="height: 200px; overflow: hidden;">
+    <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+      <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path>
+    </svg>
+  </div>
+</section>
+
+
+
+
+
+<!--hero section end 
+
+
+<!--body content start-->
+
+
+<!--about start-->
+
+
+<!--about end-->
+
+
+<!--feature end-->
+
+
+
+{% endblock content %}
+
+
+{% block my_js %}
+
+<script src="{% static 'website/js/pl.js' %}"></script>
+
+{% endblock my_js %}
+
+
+

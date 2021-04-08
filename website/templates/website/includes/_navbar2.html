@@ -1,0 +1,30 @@
+{% load static %}
+<header class="site-header">
+  <div id="header-wrap">
+    <div class="container">
+      <div class="row">
+        <!--menu start-->
+        <div class="col d-flex align-items-center justify-content-between">
+          <a class="navbar-brand logo text-dark h2 mb-0" href="/">
+              <img src="{% static 'website/images/logo/horizontal-dark.png' %}" class="logo-image" alt="" srcset="">
+            </a>
+        <nav class="navbar navbar-light navbar-expand-lg ml-auto">            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+                <!-- <li class="nav-item"> <a class="nav-link" href="/personal-loan">Personal Loans</a> -->
+                <!-- </li> -->
+                <li class="nav-item"> <a class="nav-link" href="/about">About</a>
+                </li>
+              </ul>
+            </div>
+          </nav>  
+          <a class="btn btn-orange ml-8 d-none d-lg-block" href="/personal-loan">Apply Now</a>
+          <a class="btn btn-dark ml-2 d-none d-lg-block" href="{% url 'dsalogin' %}">Agent Login</a>            
+        </div>
+        <!--menu end-->
+      </div>
+    </div>
+  </div>
+</header>

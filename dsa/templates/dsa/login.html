@@ -1,0 +1,83 @@
+{% extends 'dsa/base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'website/includes/_navbar2.html' %}
+
+<section class="position-relative">
+  <div id="particles-js"></div>
+  <div class="container">
+    <div class="row  text-center">
+      <div class="col">
+        <h1>Agent Login</h1>
+      </div>
+    </div>
+    <!-- / .row -->
+  </div>
+  <!-- / .container -->
+</section>
+
+<!--hero section end--> 
+
+
+<!--body content start-->
+
+<div class="page-content">
+
+<!--about start-->
+
+<section>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-5">
+        <div>
+          <h2 class="text-center mb-3">Login please!</h2>
+          <form id="contact-form" method="POST" novalidate="true">
+          {% csrf_token %}
+            <div class="messages"></div>
+            <div class="form-group">
+              <label>Email</label>
+              <input id="loginemail" type="type" name="email" class="form-control" placeholder="Your_email@xyz.com" required="required" data-error="Email is required.">
+              <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input id="loginpass" type="password" name="password" class="form-control" placeholder="Password" required="required" data-error="password is required.">
+              <div class="help-block with-errors"></div>
+            </div>
+            {% for field in login_form %}
+            <p>
+              {% for error in field.errors %}
+              <p style="color: red">{{ error }}</p>
+              {% endfor %}
+            </p>
+            {% endfor %}
+            {% if login_form.non_field_errors %}
+            <div style="color: red">
+              <p>{{ login_form.non_field_errors }}</p>
+            </div>
+            {% endif %}
+            <div class="form-group mt-4 mb-5">
+              {% comment %} <div class="remember-checkbox d-flex align-items-center justify-content-between">
+                <div class="checkbox">
+                  <input type="checkbox" id="check2" name="check2">
+                  <label for="check2">Remember me</label>
+                </div>
+                 <a href="#">Forgot Password?</a>
+              </div> {% endcomment %}
+            </div> <button type="submit" class="btn btn-primary btn-block">Login Now</button>
+          </form>
+          <p class="text-center">Don't have an account? <a href='/dsa/'>Create an account</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--about end-->
+
+<!--client end-->
+
+</div>
+{% endblock content %}

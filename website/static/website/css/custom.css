@@ -1,0 +1,168 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.1rem;
+}
+
+.whyp-img {
+  position: relative;
+}
+
+.why-point {
+  margin-bottom: 45px;
+}
+
+#services img {
+  height: 65px;
+  width: auto;
+}
+
+/* .whyp-img img {
+  position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+} */
+
+.tests img {
+  width: 150px;
+  height: auto;
+}
+
+.how-to-apply .f-icon-shape-sm:hover {
+  cursor: pointer;
+}
+
+.about p {
+  text-align: justify;
+}
+
+.bottom-banner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.top-banner {
+  position: relative;
+}
+
+.top-banner .content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+
+.banner-point span.dot {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.banner-point p {
+  font-size: 16px;
+  text-align: center;
+  letter-spacing: 0.1em;
+}
+
+span.bold { 
+  font-weight: bold;
+}
+
+.home-banner {
+  height: 80vh;
+}
+
+.pr-banner {
+  height: 50vh;
+}
+
+.why-point p {
+  padding: 0 25px; 
+}
+
+.step-btn {
+  font-size: 20px;
+}
+
+.elig img {
+  width: auto;
+  height: 220px;
+}
+#dsa-services img {
+  width: auto;
+  height: 240px;
+}
+
+.pl img {
+  width: auto;
+  height: 240px;
+}
+
+.docs .ic-3x {
+  font-size: 4em !important;
+}
+
+.logo-image {
+  width: 260px; 
+  height: auto;
+}
+
+.btn-orange {
+  border-color: #f94f15;
+  background-color: #f94f15;
+  color: #fff;
+}
+
+  label {
+    font-size: 0.9em;
+  }
+
+.team-card img {
+  height: 180px;
+  width: 180px;
+}
+
+.team-info {
+  font-size: 14px;
+  display: none;
+}
+
+.team-card:hover .team-info {
+  display: block !important;
+  animation: fade_in_show 0.5s
+}
+
+.team-card small {
+  color: #2b2b2b !important;
+}
+
+@keyframes fade_in_show {
+     0% {
+          opacity: 0;
+          transform: scale(0)
+     }
+
+     100% {
+          opacity: 1;
+          transform: scale(1)
+     }
+}
+
+@media (max-width: 768px) {
+  .home-banner {
+    height: 100vh;
+  }
+  .why-point p {
+  padding: 0; 
+}
+.pr-banner {
+  height: 70vh;
+}
+}

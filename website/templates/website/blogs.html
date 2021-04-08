@@ -1,0 +1,230 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'website/includes/_navbar2.html' %}
+
+<section class="position-relative">
+  <div id="particles-js"></div>
+  <div class="container">
+    <div class="row  text-center">
+      <div class="col">
+        <h1>Blogs</h1>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-center bg-transparent p-0 m-0">
+            <li class="breadcrumb-item"><a class="text-dark" href="/">Home</a>
+            </li>
+            <li class="breadcrumb-item active text-primary" aria-current="page">Blogs</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+    <!-- / .row -->
+  </div>
+  <!-- / .container -->
+</section>
+
+<!--hero section end--> 
+
+
+<!--body content start-->
+
+<div class="page-content">
+
+<section>
+  <div class="container">
+    <div class="row justify-content-center mb-11">
+      <div class="col-12 col-lg-8">
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2 col" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-primary my-2 my-sm-0 col-auto" type="submit">Search Blog</button>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-lg-7 mb-6 mb-lg-0">
+        <!-- Blog Card -->
+        <div class="card border-0 bg-transparent">
+          <div class="position-absolute bg-white shadow-primary text-center p-2 rounded ml-3 mt-3">15
+            <br>July</div>
+          <img class="card-img-top shadow rounded" src="{% static "website/images/blog/01.png"%}" alt="Image">
+          <div class="card-body pt-5"> <a class="d-inline-block text-muted mb-2" href="#">Sass</a>
+            <h2 class="h5 font-weight-medium">
+                <a class="link-title" href="{% url 'blog_single' %}">MoneyPly Perfect Performance landing Page</a>
+              </h2>
+            <p>Businesses need access to development resources serspiciatis unde omnis iste natus error.</p>
+          </div>
+          <div class="card-footer bg-transparent border-0 pt-0">
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item pr-4"> <a href="#" class="text-muted"><i class="ti-comments mr-1 text-primary"></i> 131</a>
+              </li>
+              <li class="list-inline-item pr-4"> <a href="#" class="text-muted"><i class="ti-eye mr-1 text-primary"></i> 255</a>
+              </li>
+              <li class="list-inline-item"> <a href="#" class="text-muted"><i class="ti-comments mr-1 text-primary"></i> 14</a>
+              </li>
+            </ul>
+          </div>
+          <div></div>
+        </div>
+        <!-- End Blog Card -->
+        <hr class="my-8">
+        <!-- Blog Card -->
+        <div class="card border-0 bg-transparent">
+          <div class="position-absolute bg-white shadow-primary text-center p-2 rounded ml-3 mt-3">15
+            <br>July</div>
+          <img class="card-img-top shadow rounded" src="{% static "website/images/blog/02.png"%}" alt="Image">
+          <div class="card-body pt-5"> <a class="d-inline-block text-muted mb-2" href="#">Marketing</a>
+            <h2 class="h5 font-weight-medium">
+                <a class="link-title" href="{% url 'blog_single' %}">The most powerfull template that make you.</a>
+              </h2>
+            <p>Businesses need access to development resources serspiciatis unde omnis iste natus error.</p>
+          </div>
+          <div class="card-footer bg-transparent border-0 pt-0">
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item pr-4"> <a href="#" class="text-muted"><i class="ti-comments mr-1 text-primary"></i> 131</a>
+              </li>
+              <li class="list-inline-item pr-4"> <a href="#" class="text-muted"><i class="ti-eye mr-1 text-primary"></i> 255</a>
+              </li>
+              <li class="list-inline-item"> <a href="#" class="text-muted"><i class="ti-comments mr-1 text-primary"></i> 14</a>
+              </li>
+            </ul>
+          </div>
+          <div></div>
+        </div>
+        <!-- End Blog Card -->
+        <hr class="my-8">
+        <!-- Blog Card -->
+        <div class="card border-0 bg-transparent">
+          <div class="position-absolute bg-white shadow-primary text-center p-2 rounded ml-3 mt-3">15
+            <br>July</div>
+          <img class="card-img-top shadow rounded" src="{% static "website/images/blog/03.png"%}" alt="Image">
+          <div class="card-body pt-5"> <a class="d-inline-block text-muted mb-2" href="#">Landing</a>
+            <h2 class="h5 font-weight-medium">
+                <a class="link-title" href="{% url 'blog_single' %}">A brand for a company is like a reputation person.</a>
+              </h2>
+            <p>Businesses need access to development resources serspiciatis unde omnis iste natus error.</p>
+          </div>
+          <div class="card-footer bg-transparent border-0 pt-0">
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item pr-4"> <a href="#" class="text-muted"><i class="ti-comments mr-1 text-primary"></i> 131</a>
+              </li>
+              <li class="list-inline-item pr-4"> <a href="#" class="text-muted"><i class="ti-eye mr-1 text-primary"></i> 255</a>
+              </li>
+              <li class="list-inline-item"> <a href="#" class="text-muted"><i class="ti-comments mr-1 text-primary"></i> 14</a>
+              </li>
+            </ul>
+          </div>
+          <div></div>
+        </div>
+        <!-- End Blog Card -->
+
+        <div class="row mt-11">
+  <div class="col-12">
+    <nav aria-label="...">
+      <ul class="pagination">
+        <li class="page-item mr-auto"> <a class="page-link" href="#">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link border-0 rounded text-dark" href="#">1</a>
+        </li>
+        <li class="page-item active" aria-current="page"> <a class="page-link border-0 rounded" href="#">2 <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="page-item"><a class="page-link border-0 rounded text-dark" href="#">3</a>
+        </li>
+        <li class="page-item"><a class="page-link border-0 rounded text-dark" href="#">...</a>
+        </li>
+        <li class="page-item"><a class="page-link border-0 rounded text-dark" href="#">5</a>
+        </li>
+        <li class="page-item ml-auto"> <a class="page-link" href="#">Next</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+      </div>
+      <div class="col-12 col-lg-4 ml-auto">
+        <div>
+          <h4 class="mb-5">Recent Stories</h4>
+          <article>
+            <div class="media align-items-center">
+              <div class="media-body">
+                <h5 class="h6">
+                      <a class="link-title" href="{% url 'blog_single' %}">MoneyPly Perfect Performance landing Page</a>
+                    </h5>
+                <a class="d-inline-block text-muted small font-w-5" href="#">27 November 2019</a>
+              </div>
+              <img src="{% static "website/images/blog/blog-thumb/01.png"%}" class="ml-3" alt="...">
+            </div>
+          </article>
+          <article class="mt-5">
+            <div class="media align-items-center">
+              <div class="media-body">
+                <h5 class="h6">
+                      <a class="link-title" href="{% url 'blog_single' %}">The most powerfull template that make you.</a>
+                    </h5>
+                <a class="d-inline-block text-muted small font-w-5" href="#">15 November 2019</a>
+              </div>
+              <img src="{% static "website/images/blog/blog-thumb/02.png"%}" class="ml-3" alt="...">
+            </div>
+          </article>
+          <article class="mt-5">
+            <div class="media align-items-center">
+              <div class="media-body">
+                <h5 class="h6">
+                      <a class="link-title" href="{% url 'blog_single' %}">A brand for a company is like a reputation person.</a>
+                    </h5>
+                <a class="d-inline-block text-muted small font-w-5" href="#">5 November 2019</a>
+              </div>
+              <img src="{% static "website/images/blog/blog-thumb/03.png"%}" class="ml-3" alt="...">
+            </div>
+          </article>
+        </div>
+        <div class="mt-11">
+          <h4 class="mb-5">Categories</h4>
+          <ul class="list-unstyled list-group list-group-flush mb-5">
+            <li class="mb-4"> <a class="list-group-item list-group-item-action border-0 p-0" href="#">
+                  All
+                  <span class="badge badge-primary-soft text-dark font-weight-normal p-2 badge-pill ml-2">74</span>
+                </a>
+            </li>
+            <li class="mb-4"> <a class="list-group-item list-group-item-action border-0 p-0" href="#">
+                  Arts and Entertainment
+                  <span class="badge badge-primary-soft text-dark font-weight-normal p-2 badge-pill ml-2">23</span>
+                </a>
+            </li>
+            <li class="mb-4"> <a class="list-group-item list-group-item-action border-0 p-0" href="#">
+                  Featured
+                  <span class="badge badge-primary-soft text-dark font-weight-normal p-2 badge-pill ml-2">14</span>
+                </a>
+            </li>
+            <li class="mb-4"> <a class="list-group-item list-group-item-action border-0 p-0" href="#">
+                  Daily news
+                  <span class="badge badge-primary-soft text-dark font-weight-normal p-2 badge-pill ml-2">48</span>
+                </a>
+            </li>
+            <li> <a class="list-group-item list-group-item-action border-0 p-0" href="#">
+                  Blog Post
+                  <span class="badge badge-primary-soft text-dark font-weight-normal p-2 badge-pill ml-2">32</span>
+                </a>
+            </li>
+          </ul>
+        </div>
+        <div class="mt-11">
+          <h4 class="mb-5">Tags</h4>
+          <div> <a class="btn btn-link text-dark btn-sm bg-primary-soft m-1" href="#">MoneyPly</a>
+            <a class="btn btn-link text-dark btn-sm bg-primary-soft m-1" href="#">Web Design</a>
+            <a class="btn btn-link text-dark btn-sm bg-primary-soft m-1" href="#">Saas</a>
+            <a class="btn btn-link text-dark btn-sm bg-primary-soft m-1" href="#">Corporate</a>
+            <a class="btn btn-link text-dark btn-sm bg-primary-soft m-1" href="#">Sass</a>
+            <a class="btn btn-link text-dark btn-sm bg-primary-soft m-1" href="#">Software</a>
+            <a class="btn btn-link text-dark btn-sm bg-primary-soft m-1" href="#">Landing</a>
+            <a class="btn btn-link text-dark btn-sm bg-primary-soft m-1" href="#">Startup</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+{% endblock content %}

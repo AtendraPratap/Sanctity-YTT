@@ -1,0 +1,4 @@
+User-Agent: *
+
+
+sitemap: https://moneyply.in/sitemap.xml

@@ -1,0 +1,52 @@
+{% extends 'website/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block my_css %}
+<style>
+  label {
+    font-size: 0.8em;
+  }
+</style>
+
+{% endblock my_css %}
+
+{% block content %}
+
+{% include 'website/includes/_navbar2.html' %}
+
+<section class="position-relative">
+  <div id="particles-js"></div>
+  <div class="container">
+    <div class="row  text-center">
+      <div class="col">
+        <h1>Direct Service Agents</h1>
+      </div>
+    </div>
+    <!-- / .row -->
+  </div>
+  <!-- / .container -->
+</section>
+
+<!--hero section end--> 
+
+
+<!--body content start-->
+
+<div class="page-content">
+
+<section class="text-center pb-11">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="mb-4">Thank you for your application, we'll keep you posted on your DSA application.</h3>
+        <a class="btn btn-primary" href="/">Home</a>
+        <a class="btn btn-primary" href="/blogs">Continue Browsing</a>      
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+{% endblock content %}
+

@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- meta tags -->
+<meta charset="utf-8"/>
+<meta name="keywords" content="finance, quick, loans, credit, personal loans" />
+<meta name="description" content="Moneyply - Get your personal loan here" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+<!-- Title -->
+<title>MP - DSA Portal</title>
+
+<!-- Favicon Icon -->
+<link rel="shortcut icon" href="{% static "website/images/FAVICON_NEW.png" %}" />
+
+<!-- inject css start -->
+
+<link href="{% static "website/css/theme-plugin.css"%}" rel="stylesheet" />
+<link href="{% static "website/css/theme.min.css"%}" rel="stylesheet" />
+<link href="{% static "website/css/custom.css"%}" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
+{% block my_css %}
+{% endblock my_css %}
+
+<!-- inject css end -->
+
+</head>
+
+<body>
+
+<!-- page wrapper start -->
+
+<div class="page-wrapper">
+  
+<!-- preloader start -->
+
+{% include 'website/includes/_preloader.html' %}
+
+<!-- preloader end -->
+
+
+<!--header start-->
+
+
+
+<!--header end-->
+
+
+
+
+
+<!--body content start-->
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert" id="msg">
+  <strong>Message: </strong> {{ message }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
+
+{% block content %}
+
+{% endblock content %}
+
+
+
+<!--body content end--> 
+
+
+<!--footer start-->
+
+{% include 'website/includes/_footer.html' %}
+
+<!--footer end-->
+
+</div>
+
+<!-- page wrapper end -->
+
+ 
+<!--back-to-top start-->
+
+<div class="scroll-top"><a class="smoothscroll" href="#top"><i class="las la-angle-up"></i></a></div>
+
+<!--back-to-top end-->
+
+<!-- inject js start -->
+
+<script src="{% static "website/js/theme-plugin.js"%}"></script>
+<script src="{% static "website/js/theme-script.min.js"%}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js" integrity="sha512-/bOVV1DV1AQXcypckRwsR9ThoCj7FqTV2/0Bm79bL3YSyLkVideFLE3MIZkq1u5t28ke1c0n31WYCOrO01dsUg==" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript">
+	setTimeout(function(){
+		if ($('#msg').length>0){
+			$('#msg').remove();
+		}
+	}, 4000)
+</script>
+
+{% block my_js %}
+{% endblock my_js %}
+
+<!-- inject js end -->
+
+</body>
+
+</html>
