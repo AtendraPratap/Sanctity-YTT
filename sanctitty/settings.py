@@ -31,7 +31,7 @@ if 'ubuntu' in os.getcwd():
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ['moneyply.in', '13.127.209.9', '13.234.238.237', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['13.127.209.9', '13.234.238.237', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -108,11 +108,11 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'postgres',
-            'USER': 'postgres',
-            'PASSWORD': 'moneyply2021',
-            'HOST': 'moneyply-prod.cvirweh7bhyu.ap-south-1.rds.amazonaws.com',
-            'PORT': '5432'
+            'NAME': 'mylocaldb',
+            'USER': 'napoleon',
+            'PASSWORD': 'napoleon',
+            'HOST': 'localhost',
+            'PORT': '5432',
         }
     }
 
